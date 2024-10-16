@@ -1,0 +1,23 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "A simple URL shortener service built with Node.js and Express for InfraCloud Technologies",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix ."
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "fs": "^0.0.1-security",
+    "openai": "^4.67.3",
+    "swagger-parser": "^10.0.3",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.9.1",
+    "eslint": "^9.9.1"
+  }
+}
