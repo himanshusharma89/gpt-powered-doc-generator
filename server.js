@@ -1,7 +1,18 @@
-const express = require("express")
-const app = express();
+const express = require("express");
+const docRoutes = require("./routes/docRoutes");
+const errorHandler = require("./middlewares/errorhandler")
+require("dotenv").config();
 
-const PORT = 3000;
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+
+app.use("/api/documents", docRoutes);
+
+app.use(errorHandler);
+
 app.listen(PORT, function(){
     console.log(`Server is running on http://localhost:${PORT}`);
 })
