@@ -6,16 +6,19 @@ const fs = require('fs').promises; // Use promises-based fs to avoid callback is
 // Generate documentation from uploaded Swagger and test files
 const generateDoc = async (req, res, next) => {
   try {
-
-    const swaggerFile = req.body['swaggerDoc']; // Extract swaggerDoc from uploaded files
-    const testFile = req.body['testCaseFile']; // Extract testCaseFile from uploaded files
+    const swaggerFile = req.files['swaggerDoc'][0]; // Extract swaggerDoc from uploaded files
+    const testFile = req.files['testCaseFile'][0]; // Extract testCaseFile from uploaded files
 
     // Parse Swagger file and read test case content
-    const swaggerContent = await parseSwagger(swaggerFile);
-    const testContent = await fs.readFile(testFile, 'utf-8');
+    const swaggerContent = await parseSwagger(swaggerFile.path);
+    const testContent = await fs.readFile(testFile.path, 'utf-8');
 
     // Generate documentation using GPT
     const documentation = await generateFromGPT(swaggerContent, testContent);
+
+    // Delete files after successful processing
+    await fs.unlink(swaggerFile.path);
+    await fs.unlink(testFile.path);
 
     res.status(200).json({ message: 'Documentation generated successfully!', documentation });
   } catch (error) {
