@@ -1,7 +1,7 @@
+require('dotenv').config();
 const express = require("express");
 const docRoutes = require("./routes/docRoutes");
 const errorHandler = require("./middlewares/errorhandler")
-require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
