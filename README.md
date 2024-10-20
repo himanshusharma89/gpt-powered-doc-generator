@@ -1,12 +1,12 @@
 # GPT Powered Doc Generator
 
-A basic working integration of Copilot (or ChatGPT) that parses the Swagger and unit test files. A mechanism that intelligently formats and generates technical documentation from these sources.
+A basic working integration of GPT that parses the Swagger and unit test files. A mechanism that intelligently formats and generates technical documentation from these sources.
 
 ## Features
 
 - AI integration that parses the Swagger and unit test files
-- Formats and generates technical docymentation from the Swagger and unit test files
-- Extract output in human readable markdown form, exmapling the functionality as per the input
+- Formats and generates technical documentation from the Swagger and unit test files
+- Extract output in human-readable markdown form, explaining the functionality as per the input
 
 ## Getting Started
 
@@ -19,16 +19,16 @@ A basic working integration of Copilot (or ChatGPT) that parses the Swagger and 
 
 1. **Clone the Repository**
 
-    ```bash
-    git clone https://github.com/himanshusharma89/url-shortener.git
-    cd url-shortener
-    ```
+ ```bash
+    git clone https://github.com/himanshusharma89/gpt-powered-doc-generator.git
+    cd gpt-powered-doc-generator
+ ```
 
 2. **Install Dependencies**
 
-    ```bash
+ ```bash
     npm install
-    ```
+ ```
 
 ### Configuration
 
@@ -51,9 +51,29 @@ npm start
 
 The server will start and listen on port 3000 by default. You can change the port by modifying the `server.js` file if needed.
 
+### Dockerization
+
+To run the application in Docker:
+
+1. **Download the image**
+
+ You can pull the [GPT Powered Doc Generator image](https://hub.docker.com/r/himanshusharma89/gpt-powered-doc-generator) using the below command:
+ ```bash
+    docker pull --platform=linux/arm64 himanshusharma89/gpt-powered-doc-generator
+ ```
+
+2. **Run the Docker Container**
+
+ ```bash
+    docker run -d -p 3000:3000 gpt-powered-doc-generator
+ ```
+
+ The application will be accessible at `http://localhost:3000` on your local machine.
+
+
 ### Triggering the API
 
-This command sends a POST request to your /generate endpoint with your swagger and unit test input files
+This command sends a POST request to your /generate endpoint with your swagger and unit test input files.
 
 ```bash
 curl -X POST http://localhost:3000/api/documents/generate \
