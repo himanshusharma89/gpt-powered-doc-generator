@@ -5,6 +5,8 @@ const fs = require("fs");
 // Generate documentation from uploaded Swagger and test files
 const generateDoc = async function (req, res, next) {
   try {
+    console.log(req.body);
+
     const swaggerFile = req.body['swaggerDoc'];
     const testFile = req.body['testCaseFile'];
 

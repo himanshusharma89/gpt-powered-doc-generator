@@ -1,0 +1,2 @@
+Test Case 1: Verify that GET /users returns a 200 response.
+Test Case 2: Verify that an empty list is returned when there are no users.

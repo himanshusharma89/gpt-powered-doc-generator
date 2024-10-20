@@ -1,14 +1,12 @@
-const OpenAI = require('openai');
-const {OPENAI_API_KEY} = process.env;
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-// Configure OpenAI API
-const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
-});
+// Access your API key as an environment variable
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 const generateFromGPT = async function (swaggerData, testCases) {
-    console.log(typeof testCases);
-    const prompt = `
+  console.log(typeof testCases);
+  const prompt = `
     Generate a detailed technical document based on the following:
 
     Swagger Data:
@@ -25,13 +23,9 @@ const generateFromGPT = async function (swaggerData, testCases) {
     5. Summary of test coverage.
   `;
 
-  const response = await openai.completions.create({
-    model: 'davinci-002',
-    prompt: prompt,
-    max_tokens: 1500,
-  });
+  const response = await model.generateContent(prompt);
 
-  return response.data.choices[0].text;
+  return response.response.text();
 }
 
 module.exports = generateFromGPT
