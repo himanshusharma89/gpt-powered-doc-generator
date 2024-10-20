@@ -17,11 +17,13 @@ const generateFromGPT = async (swaggerData, testCases) => {
     ${testCases}
 
     The document should:
-    1. Provide an overview of the API and its purpose.
+    1. Provide an overview of the module, or feature or API and its purpose.
     2. Explain each endpoint, including inputs, outputs, and HTTP methods.
     3. Describe error handling strategies and how the API manages edge cases.
-    4. Summarize the unit test coverage and its focus areas.
-    5. Highlight any gaps, assumptions, or areas for future improvements.
+    4. Summarize what the module or feature does based on unit tests
+    5. Describe the unit test coverage and its focus areas.
+    6. Highlight any gaps, assumptions, or areas for future improvements.
+    7. Provides a clear and concise explanation for developers onboarding onto the project.
 
     Guidelines:
     - Write in plain English, maintaining clarity and simplicity.
