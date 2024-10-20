@@ -31,8 +31,17 @@ const generateFromGPT = async (swaggerData, testCases) => {
     - Ensure completeness, but do not make the writing overly complex or verbose.
   `;
 
-  const response = await model.generateContent(prompt);
-  return response.response.text();
+  try {
+    const response = await model.generateContent(prompt);
+    if (response?.response?.text) {
+      return response.response.text(); // Ensure the text is correctly returned
+    } else {
+      throw new Error('Failed to generate content: No text in response');
+    }
+  } catch (error) {
+    console.error('Error generating content from GPT:', error);
+    throw error;
+  }
 };
 
 module.exports = generateFromGPT;
