@@ -3,9 +3,7 @@ const path = require('path');
 
 // Configure multer to save files temporarily in /tmp or another upload directory
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, '/tmp/');  // Change if not using /tmp
-  },
+  destination: '/tmp/',
   filename: (req, file, cb) => {
     const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1e9)}`;
     cb(null, `${file.fieldname}-${uniqueSuffix}-${file.originalname}`);

@@ -16,10 +16,13 @@
     "fs": "^0.0.1-security",
     "multer": "^1.4.5-lts.1",
     "path": "^0.12.7",
-    "swagger-parser": "^10.0.3"
+    "swagger-parser": "^10.0.3",
+    "yaml": "^2.6.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
-    "eslint": "^9.13.0"
+    "eslint": "^9.13.0",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
   }
 }

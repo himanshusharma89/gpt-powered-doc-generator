@@ -19,6 +19,10 @@ const ensureOutputDir = async () => {
 // Generate documentation from uploaded Swagger and test files
 const generateDoc = async (req, res, next) => {
   try {
+    if (!req.files || !req.files['swaggerDoc'] || !req.files['testCaseFile']) {
+      return res.status(400).json({ error: 'Files are required.' });
+    }
+
     const swaggerFile = req.files['swaggerDoc'][0]; // Extract Swagger file
     const testFile = req.files['testCaseFile'][0];  // Extract Test Case file
 
