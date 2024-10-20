@@ -1,13 +1,14 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+// gptService.js - Service to interact with Google Generative AI API
+const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-// Access your API key as an environment variable
+// Initialize Google Generative AI with API key from environment
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
-const generateFromGPT = async function (swaggerData, testCases) {
-  console.log(typeof testCases);
+// Generate documentation using GPT from Swagger and test data
+const generateFromGPT = async (swaggerData, testCases) => {
   const prompt = `
-    Generate a detailed technical document based on the following:
+    Generate a clear, detailed technical document using the following inputs:
 
     Swagger Data:
     ${JSON.stringify(swaggerData, null, 2)}
@@ -15,17 +16,23 @@ const generateFromGPT = async function (swaggerData, testCases) {
     Unit Test Cases:
     ${testCases}
 
-    Provide:
-    1. Overview of the API.
-    2. Explanation of each endpoint.
-    3. Inputs and outputs.
-    4. Error handling and edge cases.
-    5. Summary of test coverage.
+    The document should:
+    1. Provide an overview of the API and its purpose.
+    2. Explain each endpoint, including inputs, outputs, and HTTP methods.
+    3. Describe error handling strategies and how the API manages edge cases.
+    4. Summarize the unit test coverage and its focus areas.
+    5. Highlight any gaps, assumptions, or areas for future improvements.
+
+    Guidelines:
+    - Write in plain English, maintaining clarity and simplicity.
+    - Use active voice with calm, confident tone.
+    - Avoid adverbs, buzzwords, and filler language.
+    - Structure the content to be easy to read and scan, aiming for a Flesch reading score of 80 or higher.
+    - Ensure completeness, but do not make the writing overly complex or verbose.
   `;
 
   const response = await model.generateContent(prompt);
-
   return response.response.text();
-}
+};
 
-module.exports = generateFromGPT
+module.exports = generateFromGPT;

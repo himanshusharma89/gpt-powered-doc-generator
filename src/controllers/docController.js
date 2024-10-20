@@ -1,25 +1,26 @@
+// docController.js - Controller for generating documentation
 const generateFromGPT = require('../services/gptService');
 const parseSwagger = require('../models/swaggerModel');
-const fs = require("fs");
+const fs = require('fs').promises; // Use promises-based fs to avoid callback issues
 
 // Generate documentation from uploaded Swagger and test files
-const generateDoc = async function (req, res, next) {
+const generateDoc = async (req, res, next) => {
   try {
-    console.log(req.body);
 
-    const swaggerFile = req.body['swaggerDoc'];
-    const testFile = req.body['testCaseFile'];
+    const swaggerFile = req.body['swaggerDoc']; // Extract swaggerDoc from uploaded files
+    const testFile = req.body['testCaseFile']; // Extract testCaseFile from uploaded files
 
-    // Parse files and send content to GPT
+    // Parse Swagger file and read test case content
     const swaggerContent = await parseSwagger(swaggerFile);
-    const testContent = await fs.readFileSync(testFile, "utf-8");
+    const testContent = await fs.readFile(testFile, 'utf-8');
 
+    // Generate documentation using GPT
     const documentation = await generateFromGPT(swaggerContent, testContent);
 
     res.status(200).json({ message: 'Documentation generated successfully!', documentation });
   } catch (error) {
-    next(error); // Pass to error handler middleware
+    next(error); // Forward error to middleware for handling
   }
 };
 
-module.exports = generateDoc
+module.exports = generateDoc;

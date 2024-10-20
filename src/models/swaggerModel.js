@@ -1,3 +1,4 @@
+// swaggerModel.js - Handles parsing and validation of Swagger files
 const swaggerParser = require('swagger-parser');
 
 // Parse and validate Swagger file
@@ -10,4 +11,4 @@ const parseSwagger = async (filePath) => {
   }
 };
 
-module.exports = parseSwagger
+module.exports = parseSwagger;
