@@ -8,6 +8,10 @@ A basic working integration of GPT that parses the Swagger and unit test files. 
 - Formats and generates technical documentation from the Swagger and unit test files
 - Extract output in human-readable markdown form, explaining the functionality as per the input
 
+## POC
+
+Here's the Proof of Concept (PoC) for the [GPT Powered Doc Generator](https://docs.google.com/document/d/1D8Vo4Qu8bJxAJxDDC4YhQjhP9HQaHPqsUMTtS7JnJkQ/edit?usp=sharing)
+
 ## Getting Started
 
 ### Prerequisites
