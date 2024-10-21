@@ -28,9 +28,9 @@ const generateFromGPT = async (swaggerData, testCases) => {
     Guidelines:
     - Write in plain English, maintaining clarity and simplicity.
     - Use active voice with calm, confident tone.
-    - Avoid adverbs, buzzwords, and filler language.
-    - Structure the content to be easy to read and scan, aiming for a Flesch reading score of 80 or higher.
-    - Ensure completeness, but do not make the writing overly complex or verbose.
+    - Avoid buzzwords, adverbs, and filler.
+    - Make the content scannable and structured to maintain clarity.
+    - Aim for a Flesch reading score of 80+—keep things concise without missing important points.
   `;
 
   try {
