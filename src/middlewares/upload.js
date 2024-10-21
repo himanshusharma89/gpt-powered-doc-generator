@@ -1,5 +1,4 @@
 const multer = require('multer');
-const path = require('path');
 
 // Configure multer to save files temporarily in /tmp or another upload directory
 const storage = multer.diskStorage({
