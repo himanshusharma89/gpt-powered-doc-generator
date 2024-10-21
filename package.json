@@ -1,5 +1,5 @@
 {
-  "name": "url-shortener",
+  "name": "gpt-powered-doc-generator",
   "version": "1.0.0",
   "description": "A simple URL shortener service built with Node.js and Express for InfraCloud Technologies",
   "main": "server.js",
