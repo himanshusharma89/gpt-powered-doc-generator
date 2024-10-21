@@ -17,7 +17,7 @@ const generateFromGPT = async (swaggerData, testCases) => {
     ${testCases}
 
     The document should:
-    1. Provide an overview of the module, or feature or API and its purpose.
+    1. Provide an overview of the module, feature, or API and its purpose.
     2. Explain each endpoint, including inputs, outputs, and HTTP methods.
     3. Describe error handling strategies and how the API manages edge cases.
     4. Summarize what the module or feature does based on unit tests
@@ -27,7 +27,7 @@ const generateFromGPT = async (swaggerData, testCases) => {
 
     Guidelines:
     - Write in plain English, maintaining clarity and simplicity.
-    - Use active voice with calm, confident tone.
+    - Use an active voice with a calm, confident tone.
     - Avoid buzzwords, adverbs, and filler.
     - Make the content scannable and structured to maintain clarity.
     - Aim for a Flesch reading score of 80+—keep things concise without missing important points.
