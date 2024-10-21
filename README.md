@@ -44,6 +44,7 @@ Create a `.env` file in the root directory of the project and add the following 
 PORT=3000
 API_KEY=YOUR_GEMINI_PROJECT_API_KEY
 ```
+You can get your [Gemini API key from here](https://ai.google.dev/gemini-api/docs/api-key).
 
 ### Running the Application
 
